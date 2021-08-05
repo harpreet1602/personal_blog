@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Login from "./Login";
+import Post from "./Post";
+import Allpost from "./Allpost";
+
 
 function App() {
+let [user,setUser] = useState(null);
+console.log(user);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <Router>
+     <Switch>
+    <Route path="/login">
+         <Login handleUser= {setUser} user ={user}/>
+       </Route>
+       <Route path="/post">
+        <Post user={user}/>         
+       </Route>
+       <Route path="/allpost">
+        <Allpost user={user}/>
+       </Route>
+     </Switch>
+   </Router>
   );
 }
 
