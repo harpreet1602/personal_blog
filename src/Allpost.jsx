@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { auth, firestore } from "./firebase";
+import {Redirect,Link} from "react-router-dom";
 import "./Allpost.css";
 let Allpost = (props)=>{
     let [posts,setPosts] = useState([]);
@@ -23,7 +24,10 @@ let Allpost = (props)=>{
     },[]);
 
     return(
+        
         <div>
+            {props.user?
+            <>
             <ul>
             {
                 posts.map((el)=>{
@@ -32,6 +36,16 @@ let Allpost = (props)=>{
                 })
             }
             </ul>
+            <Link to="/post"><button className="btn btn-danger m-4"
+            >Back to write a post</button></Link>
+            <button onClick={()=>{
+                auth.signOut();
+            }}
+            className="btn btn-info m-4"
+            >Logout</button>
+            </>
+            :<Redirect to="/login"/>}
+
         </div>
     )
 }

@@ -24,7 +24,7 @@ let Login = (props) => {
 
     return(
         <div>
-            {props.user?<Redirect to="/Post"/> : ""}
+            {props.user?<Redirect to="/post"/> : ""}
 
             <button type="button" 
             onClick={ signInWithGoogle }

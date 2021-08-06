@@ -39,7 +39,7 @@ let Post = (props)=>{
 
              )
             
-            :(<Redirect to="/Login"/>)
+            :(<Redirect to="/login"/>)
             }
         </div>
     )

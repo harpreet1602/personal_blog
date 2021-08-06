@@ -26,6 +26,9 @@ console.log(user);
        <Route path="/allpost">
         <Allpost user={user}/>
        </Route>
+       {/* <Route path="/">
+       <Login handleUser= {setUser} user ={user}/>
+       </Route> */}
      </Switch>
    </Router>
   );
